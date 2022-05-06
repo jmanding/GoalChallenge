@@ -1,9 +1,17 @@
-﻿using System;
+﻿using GoalChallenge.Domain.Events.Base;
+using System;
 
 namespace GoalChallenge.Domain
 {
 	public class EntityBase
     {
+        public Guid Id { get; set; }
+        public DateTime CreationDate { get; set; }
+        public DateTime ModificationDate { get; set; }
+
+        public List<BaseDomainEvent> Events = new List<BaseDomainEvent>();
+
+
         public EntityBase()
         {
             Id = Guid.NewGuid();
@@ -20,8 +28,6 @@ namespace GoalChallenge.Domain
             ModificationDate = DateTime.UtcNow.Date;
         }
 
-        public Guid Id { get; set; }
-        public DateTime CreationDate { get; set; }
-        public DateTime ModificationDate { get; set; }
+        
     }
 }

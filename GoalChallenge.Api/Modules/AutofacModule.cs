@@ -2,6 +2,7 @@
 using GoalChallenge.Infrastructure.EF;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using System.Reflection;
 
 namespace GoalChallenge.Api.Modules
@@ -13,14 +14,16 @@ namespace GoalChallenge.Api.Modules
             var assemblies = new System.Reflection.Assembly[]
             {
                 //Application
-                typeof(GoalChallenge.Application.Commands.Items.AddItemCommand).Assembly,
+                typeof(GoalChallenge.Application.Commands.Items.AddItemToInvetoryCommand).Assembly,
+
                 // Infrastructure
-                typeof(Infrastructure.Data.Repositories.Items.IItemRepository).Assembly,
+                typeof(Infrastructure.Data.Repositories.Items.IInventoryRepository).Assembly,
+
+                // Domain
+                typeof(Domain.Events.Base.BaseDomainEvent).Assembly,
               
                // Api.Query
-               typeof(Api.Query.Queries.Items.IItemQuery).Assembly,
-               // ServiceBus
-               //typeof(RethinkSoftware.ServiceBus.Sender.Bus.ISenderBus).Assembly,
+                typeof(Api.Query.Queries.Items.IItemQuery).Assembly,
 
                System.Reflection.Assembly.GetExecutingAssembly()
             };
@@ -28,6 +31,13 @@ namespace GoalChallenge.Api.Modules
             builder.RegisterAssemblyTypes(typeof(IMediator).GetTypeInfo().Assembly).AsImplementedInterfaces();
 
             builder.RegisterAssemblyTypes(assemblies).AsImplementedInterfaces().InstancePerDependency();
+
+            builder.Register<Serilog.ILogger>((c, p) =>
+            {
+                return new LoggerConfiguration()
+                    .WriteTo.Console().
+                    CreateLogger();
+            }).InstancePerLifetimeScope();
 
             //builder.Register(c => new SqlConnection(connectionString)).As<IDbConnection>().InstancePerLifetimeScope();
 

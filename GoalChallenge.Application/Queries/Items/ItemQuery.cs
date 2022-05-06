@@ -10,16 +10,16 @@ namespace GoalChallenge.Application.Queries
 {
     public class ItemQuery : IItemQuery
     {
-        private readonly IItemRepository _itemRepository;
+        private readonly IInventoryRepository _itemRepository;
 
-        public ItemQuery(IItemRepository itemRepository)
+        public ItemQuery(IInventoryRepository itemRepository)
         {
             _itemRepository = itemRepository ?? throw new ArgumentNullException(nameof(itemRepository));
         }
 
-        public List<Item> GetAllItems()
+        public List<Inventory> GetAllItems()
         {
-            return _itemRepository.GetAllItems();
+            return _itemRepository.GetAllItemsFromInventory();
         }
     }
 }

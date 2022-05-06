@@ -1,5 +1,6 @@
 using Autofac;
 using MediatR;
+using Serilog;
 using Autofac.Extensions.DependencyInjection;
 using GoalChallenge.Api.Modules;
 using GoalChallenge.Infrastructure;

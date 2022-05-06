@@ -1,7 +1,7 @@
-﻿using GoalChallenge.Api.Models;
-//using GoalChallenge.Api.Query.Queries.Items;
+﻿//using GoalChallenge.Api.Query.Queries.Items;
 using GoalChallenge.Application.Commands.Items;
 using GoalChallenge.Application.Queries;
+using GoalChallenge.Domain.Models;
 using GoalChallenge.Infrastructure.Data.Repositories.Items;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -16,14 +16,14 @@ namespace GoalChallenge.Api.Controllers
     [ApiController]
     public class ItemController : ControllerBase
     {
-        //        private readonly IItemQuery _itemQuery;
         private readonly IItemQuery _itemQuery;
         private readonly IMediator _mediator;
-        public ItemController(IMediator mediator, IItemQuery itemQuery)
+        private readonly Serilog.ILogger _logger;
+        public ItemController(IMediator mediator, IItemQuery itemQuery, Serilog.ILogger logger)
         {
-            //_itemQuery = itemQuery ?? throw new ArgumentNullException(nameof(itemQuery));
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
             _itemQuery = itemQuery ?? throw new ArgumentNullException(nameof(itemQuery));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
 
@@ -44,11 +44,12 @@ namespace GoalChallenge.Api.Controllers
 
         // POST api/<ItemController>
         [HttpPost]
-        public async Task Post([FromBody] ItemInput itemInput)
+        public async Task Post([FromBody] Inventory inventory)
         {
-            var command = new AddItemCommand(itemInput.Name, itemInput.ExpirationDate, itemInput.Type);
-
+            var command = new AddItemToInvetoryCommand(inventory);
             await _mediator.Send(command);
+
+            _logger.Information("Add Item Successful");
         }
 
         // PUT api/<ItemController>/5

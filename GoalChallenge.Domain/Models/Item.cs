@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GoalChallenge.Domain.Events;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,5 +12,10 @@ namespace GoalChallenge.Domain.Models
         public string Name { get; set; } = string.Empty;
         public DateTime ExpirationDate { get; set; } = DateTime.UtcNow.AddDays(10);
         public int Type { get; set; }
+
+        public Item()
+        {
+            Events.Add(new ItemAddInInventoryDomainEvent(this));
+        }
     }
 }
