@@ -1,7 +1,10 @@
 ﻿using GoalChallenge.Api.Models;
-using GoalChallenge.Api.Query.Queries.Items;
+//using GoalChallenge.Api.Query.Queries.Items;
 using GoalChallenge.Application.Commands.Items;
+using GoalChallenge.Application.Queries;
+using GoalChallenge.Infrastructure.Data.Repositories.Items;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -9,23 +12,27 @@ using Microsoft.AspNetCore.Mvc;
 namespace GoalChallenge.Api.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
     public class ItemController : ControllerBase
     {
+        //        private readonly IItemQuery _itemQuery;
         private readonly IItemQuery _itemQuery;
         private readonly IMediator _mediator;
-        public ItemController(IItemQuery itemQuery, IMediator mediator)
+        public ItemController(IMediator mediator, IItemQuery itemQuery)
         {
+            //_itemQuery = itemQuery ?? throw new ArgumentNullException(nameof(itemQuery));
+            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
             _itemQuery = itemQuery ?? throw new ArgumentNullException(nameof(itemQuery));
-            _mediator = mediator ?? throw new ArgumentNullException(nameof(itemQuery));
         }
 
 
         // GET: api/<ItemController>
         [HttpGet]
-        public async Task<dynamic> GetAll()
+        public dynamic GetAll()
         {
-            return await _itemQuery.GetAllItems();
+            return _itemQuery.GetAllItems();
+            //return await _itemQuery.GetAllItems();
         }
 
         // GET api/<ItemController>/5

@@ -13,7 +13,11 @@ namespace GoalChallenge.Api.Query.Queries.Items
 
         public async Task<dynamic> GetAllItems()
         {
-            string query = @" Select * from Item";
+            string query = @" Select Item.Id,
+                                     Item.Name,
+                                     Item.ExpirationDate,
+                                     Item.Type
+                                from Item ";
 
             return await base.ExecuteQueryAsync<dynamic>(query);
         }

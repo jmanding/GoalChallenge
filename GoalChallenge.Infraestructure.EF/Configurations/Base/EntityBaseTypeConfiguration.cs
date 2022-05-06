@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace GoalChallenge.Infrastructure.Data.Configurations
+namespace GoalChallenge.Infrastructure.EF.Configurations
 {
     public class EntityBaseTypeConfiguration<T> : IEntityTypeConfiguration<T> where T : EntityBase
     {

@@ -1,5 +1,5 @@
 ﻿using GoalChallenge.Domain.Models;
-using GoalChallenge.Infrastructure.Data.Configurations;
+using GoalChallenge.Infrastructure.EF.Configurations;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GoalChallenge.Infrastructure.Data
+namespace GoalChallenge.Infrastructure.EF
 {
     public class EFContext : DbContext, IDisposable
     {

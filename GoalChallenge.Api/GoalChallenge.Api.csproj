@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.2.0" />
+    <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Negotiate" Version="6.0.4" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
@@ -15,7 +17,6 @@
   <ItemGroup>
     <ProjectReference Include="..\GoalChallenge.Api.Query\GoalChallenge.Api.Query.csproj" />
     <ProjectReference Include="..\GoalChallenge.Application\GoalChallenge.Application.csproj" />
-    <ProjectReference Include="..\GoalChallenge.Infrastructure\GoalChallenge.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

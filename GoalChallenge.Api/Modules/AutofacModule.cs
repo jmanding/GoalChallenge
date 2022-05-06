@@ -1,10 +1,10 @@
 ﻿using Autofac;
-using GoalChallenge.Infrastructure.Data;
+using GoalChallenge.Infrastructure.EF;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
-namespace GoalChallenge.Infrastructure
+namespace GoalChallenge.Api.Modules
 {
     public class AutofacModule : Autofac.Module
     {
@@ -12,8 +12,13 @@ namespace GoalChallenge.Infrastructure
         {
             var assemblies = new System.Reflection.Assembly[]
             {
+                //Application
+                typeof(GoalChallenge.Application.Commands.Items.AddItemCommand).Assembly,
+                // Infrastructure
+                typeof(Infrastructure.Data.Repositories.Items.IItemRepository).Assembly,
               
-
+               // Api.Query
+               typeof(Api.Query.Queries.Items.IItemQuery).Assembly,
                // ServiceBus
                //typeof(RethinkSoftware.ServiceBus.Sender.Bus.ISenderBus).Assembly,
 

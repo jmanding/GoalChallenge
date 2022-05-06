@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GoalChallenge.Infrastructure.Data.Configurations
+namespace GoalChallenge.Infrastructure.EF.Configurations
 {
     public class ItemEntityTypeConfiguration : EntityBaseTypeConfiguration<Item>
     {
