@@ -41,11 +41,18 @@ namespace GoalChallenge.Api.Controllers
         [HttpPost]
         public async Task Post([FromBody] InventoryInput inventory)
         {
+            try
+            {
+                var command = new AddItemsToInvetoryCommand(inventory);
+                await _mediator.Send(command);
 
-            var command = new AddItemsToInvetoryCommand(inventory);
-            await _mediator.Send(command);
 
-            _logger.Information("Add Item Successful");
+                _logger.Information("Add Item Successful");
+            }
+            catch (Exception ex)
+            {
+                _logger.Information(ex.Message);
+            }
         }
 
         // PUT api/<InventoryController>/5

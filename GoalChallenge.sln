@@ -27,7 +27,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 Common", "4 Common", "{F7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 Api", "5 Api", "{424A784F-9A74-4CDC-9915-A2BC9DDC0433}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoalChallenge.Infraestructure.EF", "GoalChallenge.Infraestructure.EF\GoalChallenge.Infraestructure.EF.csproj", "{2846EB5E-70C0-422D-AC48-EA16781F3724}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoalChallenge.Infraestructure.EF", "GoalChallenge.Infraestructure.EF\GoalChallenge.Infraestructure.EF.csproj", "{2846EB5E-70C0-422D-AC48-EA16781F3724}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6 Test", "6 Test", "{0FF3AAE2-8FD3-421A-B137-D64031834EF4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

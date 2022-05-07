@@ -11,11 +11,11 @@ namespace GoalChallenge.Application.Commands.Items
 {
     public class AddItemsToInvetoryCommand : IRequest
     {
-        public InventoryInput Inventory { get; set; }
+        public InventoryInput InventoryInput { get; set; }
 
-        public AddItemsToInvetoryCommand(InventoryInput inventory)
+        public AddItemsToInvetoryCommand(InventoryInput inventoryInput)
         {
-            Inventory = inventory;
+            InventoryInput = inventoryInput;
         }
     }
 }

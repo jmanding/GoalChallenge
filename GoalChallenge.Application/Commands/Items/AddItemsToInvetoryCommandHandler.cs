@@ -1,4 +1,5 @@
-﻿using GoalChallenge.Application.Services.Items.Interfaces;
+﻿using FluentValidation;
+using GoalChallenge.Application.Services.Items.Interfaces;
 using GoalChallenge.Infrastructure.Data.Repositories.Items;
 using MediatR;
 using System;
@@ -12,15 +13,22 @@ namespace GoalChallenge.Application.Commands.Items
     public class AddItemsToInvetoryCommandHandler : AsyncRequestHandler<AddItemsToInvetoryCommand>
     {
         private readonly IItemsService _itemsService;
+        private readonly IValidator<AddItemsToInvetoryCommand> _validator;
 
-        public AddItemsToInvetoryCommandHandler(IItemsService itemsService)
+        public AddItemsToInvetoryCommandHandler(IItemsService itemsService, IValidator<AddItemsToInvetoryCommand> validator)
         {
             _itemsService = itemsService ?? throw new ArgumentNullException(nameof(itemsService));
+            _validator = validator ?? throw new ArgumentNullException(nameof(itemsService));
         }
 
         protected override async Task Handle(AddItemsToInvetoryCommand command, CancellationToken cancellationToken)
         {
-            await _itemsService.AddItemsToInventory(command.Inventory);
+            var validation = _validator.Validate(command);
+            if (!validation.IsValid)
+            {
+                throw new Exception($"{string.Join('#', validation.Errors.Select(error => error.ErrorMessage).ToArray())}");
+            }
+            await _itemsService.AddItemsToInventory(command.InventoryInput);
         }
     }
 }

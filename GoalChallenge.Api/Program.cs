@@ -6,6 +6,10 @@ using GoalChallenge.Api.Modules;
 using GoalChallenge.Infrastructure;
 using Microsoft.AspNetCore.Authentication.Negotiate;
 using Newtonsoft.Json;
+using GoalChallenge.Application.Commands.Items;
+using MediatR.Extensions.FluentValidation.AspNetCore;
+using System.Reflection;
+using FluentValidation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,13 +17,16 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 
 builder.Services.AddMediatR(typeof(Program));
+builder.Services.AddValidatorsFromAssemblyContaining(typeof(Program));
 
 builder.Services.AddControllers()
-    .AddNewtonsoftJson(options => 
-    { 
-        options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore; 
+    .AddNewtonsoftJson(options =>
+    {
+        options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
     });
-    
+
+//builder.Services.AddFluentValidation(new[] { typeof(AddItemsToInvetoryCommandHandler).GetTypeInfo().Assembly });
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
