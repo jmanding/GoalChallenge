@@ -21,7 +21,7 @@ namespace GoalChallenge.Domain.Events
         {
             Tools.ArgumentNull(notification);
 
-            _logger.Information($"Inventory {notification.Item.Inventory.Name} -> Item Removed: {notification.Item.Name} ");
+            _logger.Information($"Inventory {notification.InventoryName} -> Item Removed: {notification.Item.Name} ");
 
             return Task.CompletedTask;
         }

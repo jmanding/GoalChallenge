@@ -28,7 +28,7 @@ namespace GoalChallenge.Domain.Models
             Tools.ArgumentNull(item);
 
             Items.Remove(item);
-            Events.Add(new ItemRemovedFromInventoryDomainEvent(item));
+            Events.Add(new ItemRemovedFromInventoryDomainEvent(item, Name));
         }
 
         

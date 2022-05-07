@@ -70,6 +70,7 @@ namespace GoalChallenge.Application.Services.Items
                     itemNoExist = false;
                 }
             }
+
             if(itemNoExist)
             {
                 throw new Exception($@"Item no exist with Name ""{name}""");
