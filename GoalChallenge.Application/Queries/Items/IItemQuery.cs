@@ -4,6 +4,6 @@ namespace GoalChallenge.Application.Queries
 {
     public interface IItemQuery
     {
-        List<Item> GetAllItems();
+        List<Inventory> GetAllItems();
     }
 }

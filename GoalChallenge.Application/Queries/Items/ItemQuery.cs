@@ -17,9 +17,9 @@ namespace GoalChallenge.Application.Queries
             _itemRepository = itemRepository ?? throw new ArgumentNullException(nameof(itemRepository));
         }
 
-        public List<Item> GetAllItems()
+        public List<Inventory> GetAllItems()
         {
-            return _itemRepository.GetAllItemsFromInventory().First().Items;
+            return _itemRepository.GetAllItemsFromInventory();
         }
     }
 }

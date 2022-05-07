@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace GoalChallenge.Application.Commands.Items
 {
-    public class AddItemToInvetoryCommand : IRequest
+    public class RemoveItemFromInventoryByNameCommand : IRequest
     {
-        public Inventory Inventory { get; set; }
+        public string Name { get; set; }
 
-        public AddItemToInvetoryCommand(Inventory inventory)
+        public RemoveItemFromInventoryByNameCommand(string name)
         {
-            Inventory = inventory;
+            Name = name;
         }
     }
 }

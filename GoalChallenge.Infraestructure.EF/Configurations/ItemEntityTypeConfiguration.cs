@@ -17,6 +17,10 @@ namespace GoalChallenge.Infrastructure.EF.Configurations
             builder.Property(p => p.Name)
                 .HasMaxLength(50)
                 .IsRequired();
+
+            builder.HasOne(x => x.Inventory)
+                .WithMany(x => x.Items)
+                .HasForeignKey(x => x.InventoryId);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace GoalChallenge.Api.Modules
             var assemblies = new System.Reflection.Assembly[]
             {
                 //Application
-                typeof(GoalChallenge.Application.Commands.Items.AddItemToInvetoryCommand).Assembly,
+                typeof(GoalChallenge.Application.Commands.Items.AddItemsToInvetoryCommand).Assembly,
 
                 // Infrastructure
                 typeof(Infrastructure.Data.Repositories.Items.IInventoryRepository).Assembly,
@@ -41,7 +41,7 @@ namespace GoalChallenge.Api.Modules
 
             //builder.Register(c => new SqlConnection(connectionString)).As<IDbConnection>().InstancePerLifetimeScope();
 
-            var dbContextOptionsBuilder = new DbContextOptionsBuilder<EFContext>().UseInMemoryDatabase(databaseName: "Test");
+            var dbContextOptionsBuilder = new DbContextOptionsBuilder<EFContext>().UseInMemoryDatabase(databaseName: "Test").UseLazyLoadingProxies();
 
             builder.RegisterType<EFContext>()
                 .WithParameter("options", dbContextOptionsBuilder.Options)

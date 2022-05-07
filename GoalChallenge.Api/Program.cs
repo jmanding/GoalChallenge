@@ -5,6 +5,7 @@ using Autofac.Extensions.DependencyInjection;
 using GoalChallenge.Api.Modules;
 using GoalChallenge.Infrastructure;
 using Microsoft.AspNetCore.Authentication.Negotiate;
+using Newtonsoft.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +14,12 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 
 builder.Services.AddMediatR(typeof(Program));
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddNewtonsoftJson(options => 
+    { 
+        options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore; 
+    });
+    
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

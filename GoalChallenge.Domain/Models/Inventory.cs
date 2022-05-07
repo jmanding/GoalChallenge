@@ -12,7 +12,7 @@ namespace GoalChallenge.Domain.Models
     {
         public string Name { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
-        public List<Item> Items { get; set; } = new List<Item>();
+        public virtual List<Item> Items { get; set; } = new List<Item>();
 
 
         public void AddItem(Item newItem) 
@@ -23,10 +23,15 @@ namespace GoalChallenge.Domain.Models
             Events.Add(new ItemAddInInventoryDomainEvent(newItem));
         }
 
-        //public void UpdateName(string newName)
-        //{
-        //    Name = Guard.Against.NullOrEmpty(newName, nameof(newName));
-        //}
+        public void RemoveItem(Item item)
+        {
+            Tools.ArgumentNull(item);
+
+            Items.Remove(item);
+            Events.Add(new ItemRemovedFromInventoryDomainEvent(item));
+        }
+
+        
 
     }
 }

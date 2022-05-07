@@ -8,20 +8,20 @@ using System.Threading.Tasks;
 
 namespace GoalChallenge.Domain.Events
 {
-    public class ItemAddInInventoryDomainEventHandler : INotificationHandler<ItemAddInInventoryDomainEvent>
+    public class ItemRemovedFromInventoryDomainEventHandler : INotificationHandler<ItemRemovedFromInventoryDomainEvent>
     {
         private readonly Serilog.ILogger _logger;
 
-        public ItemAddInInventoryDomainEventHandler(Serilog.ILogger logger)
+        public ItemRemovedFromInventoryDomainEventHandler(Serilog.ILogger logger)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        public Task Handle(ItemAddInInventoryDomainEvent notification, CancellationToken cancellationToken)
+        public Task Handle(ItemRemovedFromInventoryDomainEvent notification, CancellationToken cancellationToken)
         {
             Tools.ArgumentNull(notification);
 
-            _logger.Information($"Inventory {notification.Item.Inventory.Name} -> Item Added {notification.Item.Name} Expiration date {notification.Item.ExpirationDate} ");
+            _logger.Information($"Inventory {notification.Item.Inventory.Name} -> Item Removed: {notification.Item.Name} ");
 
             return Task.CompletedTask;
         }

@@ -27,9 +27,40 @@ namespace GoalChallenge.Infrastructure.Data.Repositories.Items
             await _efContext.SaveChangesAsync();
         }
 
+        public async Task AddItemsToExistInventory(Inventory inventory)
+        {
+            Tools.ArgumentNull(inventory);
+            _efContext.Inventorys.Update(inventory);
+            await _efContext.SaveChangesAsync();
+        }
+
+        public Inventory? GetInventoryByName(string name)
+        {
+            return _efContext.Inventorys.FirstOrDefault(x => x.Name == name);
+        }
         public List<Inventory> GetAllItemsFromInventory()
         {
-            return _efContext.Inventorys.ToList();
+            var res = _efContext.Inventorys.ToList();
+            return res;
+        }
+
+        public Item GetItemByName(string name)
+        {
+            return _efContext.Items.Where(item => item.Name == name).Single();
+        }
+
+        public void RemoveItemFromInventory(Item item)
+        {
+            Tools.ArgumentNull(item);
+            _efContext.Items.Remove(item);
+        }
+
+        public async Task UpdateInventories(List<Inventory> inventories)
+        {
+            Tools.ArgumentNull(inventories);
+            _efContext.Inventorys.UpdateRange(inventories);
+            await _efContext.SaveChangesAsync();
+
         }
     }
 }
