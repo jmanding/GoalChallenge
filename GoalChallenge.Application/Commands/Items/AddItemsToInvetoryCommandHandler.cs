@@ -19,11 +19,12 @@ namespace GoalChallenge.Application.Commands.Items
         public AddItemsToInvetoryCommandHandler(IItemsService itemsService, IValidator<AddItemsToInvetoryCommand> validator)
         {
             _itemsService = itemsService ?? throw new ArgumentNullException(nameof(itemsService));
-            _validator = validator ?? throw new ArgumentNullException(nameof(itemsService));
+            _validator = validator ?? throw new ArgumentNullException(nameof(validator));
         }
 
         protected override async Task Handle(AddItemsToInvetoryCommand command, CancellationToken cancellationToken)
         {
+            Tools.ArgumentNull(command, nameof(command));
             _validator.Validate(command).Result();
             
             await _itemsService.AddItemsToInventory(command.InventoryInput);

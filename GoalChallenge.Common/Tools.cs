@@ -5,7 +5,7 @@ namespace GoalChallenge.Common
 {
     public static class Tools
     {
-        public static void ArgumentNull<T>(T argument) => _ = argument ?? throw new ArgumentNullException(nameof(argument));
+        public static void ArgumentNull<T>(T argument, string operation) => _ = argument ?? throw new ArgumentNullException(operation);
 
         
         /// <summary>
@@ -19,7 +19,7 @@ namespace GoalChallenge.Common
 
         public static void Result(this ValidationResult validationResult)
         {
-            if (!validationResult.IsValid)
+            if (validationResult != null && !validationResult.IsValid)
             {
                 throw new Exception(validationResult.ToString("#"));
             }

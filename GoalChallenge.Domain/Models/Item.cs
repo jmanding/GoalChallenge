@@ -14,10 +14,6 @@ namespace GoalChallenge.Domain.Models
         public int Type { get; set; }
         public Guid InventoryId { get; set; }
         public virtual Inventory Inventory { get; set; } = new Inventory();
-        //public Item()
-        //{
-        //    Events.Add(new ItemAddInInventoryDomainEvent(this));
-        //}
 
         public override bool Equals(object obj)
         {

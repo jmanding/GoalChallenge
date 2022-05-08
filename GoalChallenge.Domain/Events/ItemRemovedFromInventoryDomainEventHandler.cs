@@ -19,7 +19,7 @@ namespace GoalChallenge.Domain.Events
 
         public Task Handle(ItemRemovedFromInventoryDomainEvent notification, CancellationToken cancellationToken)
         {
-            Tools.ArgumentNull(notification);
+            Tools.ArgumentNull(notification, nameof(notification));
 
             _logger.Information($"Inventory {notification.InventoryName} -> Item Removed: {notification.Item.Name} ");
 

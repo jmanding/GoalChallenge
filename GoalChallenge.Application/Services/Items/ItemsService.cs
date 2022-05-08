@@ -53,7 +53,7 @@ namespace GoalChallenge.Application.Services.Items
 
         public async Task RemoveItemFromInventoryByName(string name)
         {
-            Tools.ArgumentNull(name);
+            Tools.ArgumentNull(name, nameof(name));
 
             var inventories = _inventoryRepository.GetAllItemsFromInventory();
 

@@ -19,7 +19,7 @@ namespace GoalChallenge.Domain.Events
 
         public Task Handle(ItemAddInInventoryDomainEvent notification, CancellationToken cancellationToken)
         {
-            Tools.ArgumentNull(notification);
+            Tools.ArgumentNull(notification, nameof(notification));
 
             _logger.Information($"Inventory {notification.Item.Inventory.Name} -> Item Added {notification.Item.Name} Expiration date {notification.Item.ExpirationDate} ");
 

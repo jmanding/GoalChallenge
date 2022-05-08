@@ -15,20 +15,20 @@ namespace GoalChallenge.Domain.Models
         public virtual List<Item> Items { get; set; } = new List<Item>();
 
 
-        public void AddItem(Item newItem) 
+        public void AddItem(Item addItem) 
         {
-            Tools.ArgumentNull(newItem);
+            Tools.ArgumentNull(addItem, nameof(addItem));
 
-            Items.Add(newItem);
-            Events.Add(new ItemAddInInventoryDomainEvent(newItem));
+            Items.Add(addItem);
+            Events.Add(new ItemAddInInventoryDomainEvent(addItem));
         }
 
-        public void RemoveItem(Item item)
+        public void RemoveItem(Item removeItem)
         {
-            Tools.ArgumentNull(item);
+            Tools.ArgumentNull(removeItem, nameof(removeItem));
 
-            Items.Remove(item);
-            Events.Add(new ItemRemovedFromInventoryDomainEvent(item, Name));
+            Items.Remove(removeItem);
+            Events.Add(new ItemRemovedFromInventoryDomainEvent(removeItem, Name));
         }
 
         
