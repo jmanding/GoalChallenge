@@ -8,8 +8,8 @@ namespace GoalChallenge.UnitTest.Items
 {
     public class Item_RemoveItems
     {
-        private InventoryBuilder _inventoryBuilder = new InventoryBuilder("Inventory1");
-        private ItemBuilder _itemBuilder = new ItemBuilder();
+        private readonly InventoryBuilder _inventoryBuilder = new InventoryBuilder("Inventory1");
+        private readonly ItemBuilder _itemBuilder = new ItemBuilder();
 
         [Fact]
         public void RemoveItemsToInventory()

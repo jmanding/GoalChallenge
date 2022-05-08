@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GoalChallenge.Api.Controllers
 {
+    /// <summary>
+    /// Inventory operations
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class InventoryController : ControllerBase
@@ -16,6 +19,13 @@ namespace GoalChallenge.Api.Controllers
         private readonly IItemQuery _itemQuery;
         private readonly IMediator _mediator;
         private readonly Serilog.ILogger _logger;
+        /// <summary>
+        /// Inventory Controller Constructor
+        /// </summary>
+        /// <param name="mediator"></param>
+        /// <param name="itemQuery"></param>
+        /// <param name="logger"></param>
+        /// <exception cref="ArgumentNullException"></exception>
         public InventoryController(IMediator mediator, IItemQuery itemQuery, Serilog.ILogger logger)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
@@ -68,9 +78,6 @@ namespace GoalChallenge.Api.Controllers
             {
                 var command = new AddItemsToInvetoryCommand(inventory);
                 await _mediator.Send(command);
-
-
-                _logger.Information("Add Item Successful");
             }
             catch (Exception ex)
             {
@@ -82,7 +89,7 @@ namespace GoalChallenge.Api.Controllers
 
         // DELETE api/<InventoryController>/5
         /// <summary>
-        /// Delete a item by name from inventory. If exist same item another inventory, all them will be removed
+        /// Delete an item by name from inventory. If exist same item another inventory, all them will be removed
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>

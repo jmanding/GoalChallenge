@@ -15,9 +15,9 @@ namespace GoalChallenge.UnitTest.Handlers
 {
     public class RemoveItemFromInventoryByNameCommandHandle
     {
-        private IRequestHandler<RemoveItemFromInventoryByNameCommand> _handler;
-        private Mock<IItemsService> _itemsServiceMock;
-        private Mock<IValidator<RemoveItemFromInventoryByNameCommand>> _validatorMock;
+        private readonly IRequestHandler<RemoveItemFromInventoryByNameCommand> _handler;
+        private readonly Mock<IItemsService> _itemsServiceMock;
+        private readonly Mock<IValidator<RemoveItemFromInventoryByNameCommand>> _validatorMock;
 
         public RemoveItemFromInventoryByNameCommandHandle()
         {
@@ -29,7 +29,9 @@ namespace GoalChallenge.UnitTest.Handlers
         [Fact]
         public async Task ThrowsExceptionGivenNullEventArgument()
         {
-            Exception ex = await Assert.ThrowsAsync<ArgumentNullException>(() => _handler.Handle(null, CancellationToken.None));
+
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _handler.Handle(null, CancellationToken.None));
+
         }
 
         [Fact]
