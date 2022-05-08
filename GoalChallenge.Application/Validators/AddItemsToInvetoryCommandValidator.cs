@@ -8,7 +8,7 @@ namespace GoalChallenge.Application.Validators
         public AddItemsToInvetoryCommandValidator()
         {
             RuleFor(x => x.InventoryInput).NotEmpty();
-            RuleFor(x => x.InventoryInput.Name).NotEmpty().MaximumLength(10);
+            RuleFor(x => x.InventoryInput.Name).NotEmpty().MaximumLength(15);
 
         }
     }
