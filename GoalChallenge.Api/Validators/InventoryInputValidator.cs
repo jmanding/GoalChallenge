@@ -9,7 +9,11 @@ namespace GoalChallenge.Api.Validators
         {
             RuleFor(x => x.Name)
                 .NotEmpty()
-                .MaximumLength(5);
+                .MaximumLength(10);
+
+            RuleFor(x => x.Items)
+                .NotNull()
+                .NotEmpty();
         }
     }
 }

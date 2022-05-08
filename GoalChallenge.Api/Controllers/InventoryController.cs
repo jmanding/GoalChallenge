@@ -24,20 +24,43 @@ namespace GoalChallenge.Api.Controllers
         }
 
         // GET: api/<InventoryController>
+        /// <summary>
+        /// Get all Items from Inventory
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public dynamic Get()
         {
             return _itemQuery.GetAllItems();
         }
 
-        // GET api/<InventoryController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
         // POST api/<InventoryController>
+        /// <summary>
+        /// Insert a item or several items into inventory
+        /// </summary>
+        /// <param name="inventory"></param>
+        /// <remarks> 
+        /// 
+        /// Sample message
+        /// 
+        ///     {
+        ///         "name": "Invent1",
+        ///         "description": "Description",
+        ///         "items": [
+        ///             {
+        ///                 "name": "Item1",
+        ///                 "expirationDate": "2022-05-16T23:13:27.576Z",
+        ///                 "type": 1
+        ///             },
+        ///             {
+        ///                 "name": "Item2",
+        ///                 "expirationDate": "2022-05-26T23:13:27.576Z",
+        ///                 "type": 3
+        ///             }
+        ///         ]
+        ///      }
+        /// </remarks>
+        /// <returns></returns>
         [HttpPost]
         public async Task Post([FromBody] InventoryInput inventory)
         {
@@ -55,13 +78,14 @@ namespace GoalChallenge.Api.Controllers
             }
         }
 
-        // PUT api/<InventoryController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
+       
 
         // DELETE api/<InventoryController>/5
+        /// <summary>
+        /// Delete a item by name from inventory. If exist same item another inventory, all them will be removed
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         [HttpDelete("{name}")]
         public async Task Delete(string name)
         {
