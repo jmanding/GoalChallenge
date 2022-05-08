@@ -1,4 +1,7 @@
-﻿namespace GoalChallenge.Common
+﻿using FluentValidation;
+using FluentValidation.Results;
+
+namespace GoalChallenge.Common
 {
     public static class Tools
     {
@@ -12,9 +15,14 @@
         /// <param name="first"></param>
         /// <param name="second"></param>
         /// <returns></returns>
-        public static List<T> ExceptionLists<T>(List<T> first, List<T> second) where T : class
+        public static List<T> ExceptionLists<T>(List<T> first, List<T> second) where T : class => first.Except(second).ToList();
+
+        public static void Result(this ValidationResult validationResult)
         {
-            return first.Except(second).ToList();
+            if (!validationResult.IsValid)
+            {
+                throw new Exception(validationResult.ToString("#"));
+            }
         }
     }
 }
