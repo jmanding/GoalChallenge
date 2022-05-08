@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace GoalChallenge.UnitTest.Inventories
+namespace GoalChallenge.UnitTest.Items
 {
     public class ItemConstructor
     {
