@@ -1,5 +1,6 @@
 ﻿using GoalChallenge.Application.Services.Items.Interfaces;
 using GoalChallenge.Common;
+using GoalChallenge.Common.Exceptions;
 using GoalChallenge.Common.Models;
 using GoalChallenge.Domain.Models;
 using GoalChallenge.Infrastructure.Data.Repositories.Items;
@@ -29,9 +30,6 @@ namespace GoalChallenge.Application.Services.Items
 
             if (inventoryExist != null)
             {
-                //var res1 = Tools.ExceptionLists(itemsInput, inventoryExist.Items);
-                //var res2 = Tools.ExceptionLists(inventoryExist.Items, itemsInput);
-
                 Tools.ExceptionLists(itemsInput, inventoryExist.Items).ForEach(item => inventoryExist.AddItem(item));
                 Tools.ExceptionLists(inventoryExist.Items, itemsInput).ForEach(item => inventoryExist.RemoveItem(item));
 
@@ -57,12 +55,12 @@ namespace GoalChallenge.Application.Services.Items
 
             var inventories = _inventoryRepository.GetAllItemsFromInventory();
 
-            Item itemRemoved;
+            Item? itemRemoved;
             bool itemNoExist = true;
 
             foreach (var inventory in inventories)
             {
-                itemRemoved = inventory.Items.Where(x => x.Name == name).FirstOrDefault();
+                itemRemoved = inventory.Items.FirstOrDefault(x => x.Name == name);
 
                 if (itemRemoved != null)
                 {
@@ -73,7 +71,7 @@ namespace GoalChallenge.Application.Services.Items
 
             if(itemNoExist)
             {
-                throw new Exception($@"Item no exist with Name ""{name}""");
+                throw new NoDataException($@"Item no exist with Name ""{name}""");
             }
 
             

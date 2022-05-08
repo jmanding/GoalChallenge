@@ -7,14 +7,21 @@ using System.Reflection;
 
 namespace GoalChallenge.Api.Modules
 {
+    /// <summary>
+    /// Autofac module
+    /// </summary>
     public class AutofacModule : Autofac.Module
     {
+        /// <summary>
+        /// Load Autofac Module
+        /// </summary>
+        /// <param name="builder"></param>
         protected override void Load(ContainerBuilder builder)
         {
             var assemblies = new System.Reflection.Assembly[]
             {
                 //Application
-                typeof(GoalChallenge.Application.Commands.Items.AddItemsToInvetoryCommand).Assembly,
+                typeof(GoalChallenge.Application.Commands.Items.RemoveItemFromInventoryByNameCommand).Assembly,
 
                 // Infrastructure
                 typeof(Infrastructure.Data.Repositories.Items.IInventoryRepository).Assembly,
@@ -38,8 +45,6 @@ namespace GoalChallenge.Api.Modules
                     .WriteTo.Console().
                     CreateLogger();
             }).InstancePerLifetimeScope();
-
-            //builder.Register(c => new SqlConnection(connectionString)).As<IDbConnection>().InstancePerLifetimeScope();
 
             var dbContextOptionsBuilder = new DbContextOptionsBuilder<EFContext>().UseInMemoryDatabase(databaseName: "Test").UseLazyLoadingProxies();
 

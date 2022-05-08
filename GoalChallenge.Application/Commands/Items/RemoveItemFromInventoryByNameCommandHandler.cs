@@ -16,7 +16,8 @@ namespace GoalChallenge.Application.Commands.Items
         private readonly IItemsService _itemsService;
         private readonly IValidator<RemoveItemFromInventoryByNameCommand> _validator;
 
-        public RemoveItemFromInventoryByNameCommandHandler(IItemsService itemsService, IValidator<RemoveItemFromInventoryByNameCommand> validator)
+        public RemoveItemFromInventoryByNameCommandHandler(IItemsService itemsService, IValidator<RemoveItemFromInventoryByNameCommand> validator
+            )
         {
             _itemsService = itemsService ?? throw new ArgumentNullException(nameof(itemsService));
             _validator = validator ?? throw new ArgumentNullException(nameof(validator));

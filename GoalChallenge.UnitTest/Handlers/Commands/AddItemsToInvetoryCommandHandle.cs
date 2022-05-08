@@ -16,9 +16,9 @@ namespace GoalChallenge.UnitTest.Handlers
 {
     public class AddItemsToInvetoryCommandHandle
     {
-        private IRequestHandler<AddItemsToInvetoryCommand> _handler;
-        private Mock<IItemsService> _itemsServiceMock;
-        private Mock<IValidator<AddItemsToInvetoryCommand>> _validatorMock;
+        private readonly IRequestHandler<AddItemsToInvetoryCommand> _handler;
+        private readonly Mock<IItemsService> _itemsServiceMock;
+        private readonly Mock<IValidator<AddItemsToInvetoryCommand>> _validatorMock;
 
         public AddItemsToInvetoryCommandHandle()
         {
@@ -30,7 +30,7 @@ namespace GoalChallenge.UnitTest.Handlers
         [Fact]
         public async Task ThrowsExceptionGivenNullEventArgument()
         {
-            Exception ex = await Assert.ThrowsAsync<ArgumentNullException>(() => _handler.Handle(null, CancellationToken.None));
+            await Assert.ThrowsAsync<ArgumentNullException>(() => _handler.Handle(null, CancellationToken.None));
         }
 
         [Fact]

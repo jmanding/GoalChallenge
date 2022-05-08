@@ -11,12 +11,12 @@ using System.Threading.Tasks;
 
 namespace GoalChallenge.Infrastructure.EF
 {
-    public class EFContext : DbContext, IDisposable
+    public class EFContext : DbContext
     {
         private readonly IMediator _mediator;
 
-        public DbSet<Item> Items { get; set; }
-        public DbSet<Inventory> Inventorys { get; set; }
+        public DbSet<Item>? Items { get; set; }
+        public DbSet<Inventory>? Inventorys { get; set; }
 
         public EFContext(DbContextOptions<EFContext> options, IMediator mediator) : base(options)
         {

@@ -3,8 +3,14 @@ using GoalChallenge.Common.Models;
 
 namespace GoalChallenge.Api.Validators
 {
+    /// <summary>
+    /// InventoryInput Validator 
+    /// </summary>
     public class InventoryInputValidator : AbstractValidator<InventoryInput>
     {
+        /// <summary>
+        /// InventoryInput Validator Constructor
+        /// </summary>
         public InventoryInputValidator()
         {
             RuleFor(x => x.Name)
