@@ -37,6 +37,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 Docs", "0 Docs", "{C29230
 	ProjectSection(SolutionItems) = preProject
 		Arquitectura Goal Challenge.pdf = Arquitectura Goal Challenge.pdf
 		Arquitectura Otra.pdf = Arquitectura Otra.pdf
+		Documento técnico Proyecto Goal Challenge.pdf = Documento técnico Proyecto Goal Challenge.pdf
 	EndProjectSection
 EndProject
 Global
