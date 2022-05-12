@@ -1,16 +1,13 @@
 using Autofac;
 using MediatR;
-using Serilog;
 using Autofac.Extensions.DependencyInjection;
 using GoalChallenge.Api.Modules;
-using GoalChallenge.Infrastructure;
 using Microsoft.AspNetCore.Authentication.Negotiate;
 using Newtonsoft.Json;
-using GoalChallenge.Application.Commands.Items;
-using MediatR.Extensions.FluentValidation.AspNetCore;
 using System.Reflection;
 using FluentValidation;
 using Microsoft.OpenApi.Models;
+using GoalChallenge.Api.CustomExceptionMiddleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -61,6 +58,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.ConfigureCustomExceptionMiddleware();
 
 app.UseHttpsRedirection();
 

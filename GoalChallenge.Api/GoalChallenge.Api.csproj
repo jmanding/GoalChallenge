@@ -23,7 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GoalChallenge.Api.Query\GoalChallenge.Api.Query.csproj" />
     <ProjectReference Include="..\GoalChallenge.Application\GoalChallenge.Application.csproj" />
   </ItemGroup>
 

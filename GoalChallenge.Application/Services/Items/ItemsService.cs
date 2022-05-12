@@ -2,23 +2,27 @@
 using GoalChallenge.Common;
 using GoalChallenge.Common.Exceptions;
 using GoalChallenge.Common.Models;
+using GoalChallenge.Domain.Events;
 using GoalChallenge.Domain.Models;
 using GoalChallenge.Infrastructure.Data.Repositories.Items;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MediatR;
 
 namespace GoalChallenge.Application.Services.Items
 {
-    public class ItemsService : IItemsService
+    internal class ItemsService : IItemsService
     {
         private readonly IInventoryRepository _inventoryRepository;
+        private readonly IMediator _mediator;
 
-        public ItemsService(IInventoryRepository inventoryRepository)
+        public ItemsService(IInventoryRepository inventoryRepository, IMediator mediator)
         {
+            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
             _inventoryRepository = inventoryRepository ?? throw new ArgumentNullException(nameof(inventoryRepository));
+        }
+
+        public async Task<List<Inventory>> GetAllItems()
+        {
+            return await _inventoryRepository.GetAllItemsFromInventory();
         }
 
         public async Task AddItemsToInventory(InventoryInput inventoryInput)
@@ -26,18 +30,18 @@ namespace GoalChallenge.Application.Services.Items
             List<Item> itemsInput = new List<Item>();
             inventoryInput.Items.ForEach(item => itemsInput.Add(new Item() { Name = item.Name, ExpirationDate = item.ExpirationDate, Type = item.Type }));
 
-            var inventoryExist = _inventoryRepository.GetInventoryByName(inventoryInput.Name);
+            var inventory = await _inventoryRepository.GetInventoryByName(inventoryInput.Name);
 
-            if (inventoryExist != null)
+            if (inventory != null)
             {
-                Tools.ExceptionLists(itemsInput, inventoryExist.Items).ForEach(item => inventoryExist.AddItem(item));
-                Tools.ExceptionLists(inventoryExist.Items, itemsInput).ForEach(item => inventoryExist.RemoveItem(item));
+                Tools.ExceptionLists(itemsInput, inventory.Items).ForEach(item => inventory.AddItem(item));
+                Tools.ExceptionLists(inventory.Items, itemsInput).ForEach(item => inventory.RemoveItem(item));
 
-                await _inventoryRepository.AddItemsToExistInventory(inventoryExist);
+                await _inventoryRepository.AddItemsToExistInventory(inventory);
             }
             else
             {
-                Inventory inventory = new Inventory()
+                inventory = new Inventory()
                 {
                     Name = inventoryInput.Name,
                     Description = inventoryInput.Description
@@ -47,13 +51,18 @@ namespace GoalChallenge.Application.Services.Items
 
                 await _inventoryRepository.AddItemsToInventory(inventory);
             }
+
+            foreach (var domainEvent in inventory.Events)
+            {
+                await _mediator.Publish(domainEvent).ConfigureAwait(false);
+            }
         }
 
         public async Task RemoveItemFromInventoryByName(string name)
         {
             Tools.ArgumentNull(name, nameof(name));
 
-            var inventories = _inventoryRepository.GetAllItemsFromInventory();
+            var inventories = await _inventoryRepository.GetAllItemsFromInventory();
 
             Item? itemRemoved;
             bool itemNoExist = true;
@@ -74,9 +83,16 @@ namespace GoalChallenge.Application.Services.Items
                 throw new NoDataException($@"Item no exist with Name ""{name}""");
             }
 
-            
-            
             await _inventoryRepository.UpdateInventories(inventories);
+
+            foreach (var inventory in inventories)
+            {
+                foreach (var domainEvent in inventory.Events)
+                {
+                    await _mediator.Publish(domainEvent).ConfigureAwait(false);
+
+                }
+            }
         }
     }
 }

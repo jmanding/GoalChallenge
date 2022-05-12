@@ -28,9 +28,6 @@ namespace GoalChallenge.Api.Modules
 
                 // Domain
                 typeof(Domain.Events.Base.BaseDomainEvent).Assembly,
-              
-               // Api.Query
-                typeof(Api.Query.Queries.Items.IItemQuery).Assembly,
 
                System.Reflection.Assembly.GetExecutingAssembly()
             };
