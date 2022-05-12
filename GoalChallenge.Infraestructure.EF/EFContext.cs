@@ -22,28 +22,5 @@ namespace GoalChallenge.Infrastructure.EF
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ItemEntityTypeConfiguration).Assembly);
         }
-
-        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
-        {
-            int result = await base.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
-
-            var entitiesWithEvents = ChangeTracker.Entries<EntityBase>()
-                .Select(e => e.Entity)
-                .Where(e => e.Events.Any());
-
-            foreach (var entity in entitiesWithEvents)
-            {
-                var events = entity.Events;
-                
-                foreach (var domainEvent in events)
-                {
-                    await _mediator.Publish(domainEvent).ConfigureAwait(false);
-                }
-
-                entity.Events.Clear();
-            }
-
-            return result;
-        }
     }
 }
