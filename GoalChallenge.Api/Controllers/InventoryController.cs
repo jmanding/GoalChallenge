@@ -15,7 +15,6 @@ namespace GoalChallenge.Api.Controllers
     [ApiController]
     public class InventoryController : ControllerBase
     {
-        
         private readonly IMediator _mediator;
         private readonly Serilog.ILogger _logger;
         /// <summary>
@@ -71,15 +70,8 @@ namespace GoalChallenge.Api.Controllers
         [HttpPost]
         public async Task Post([FromBody] InventoryInput inventory)
         {
-            try
-            {
-                var command = new AddItemsToInvetoryCommand(inventory);
-                await _mediator.Send(command);
-            }
-            catch (Exception ex)
-            {
-                _logger.Information(ex.Message);
-            }
+            var command = new AddItemsToInvetoryCommand(inventory);
+            await _mediator.Send(command);
         }
 
        
@@ -93,15 +85,8 @@ namespace GoalChallenge.Api.Controllers
         [HttpDelete("{name}")]
         public async Task Delete(string name)
         {
-            try
-            {
-                var command = new RemoveItemFromInventoryByNameCommand(name);
-                await _mediator.Send(command);
-            }
-            catch (Exception ex)
-            {
-                _logger.Information(ex.Message);
-            }
+            var command = new RemoveItemFromInventoryByNameCommand(name);
+            await _mediator.Send(command);
         }
     }
 }
