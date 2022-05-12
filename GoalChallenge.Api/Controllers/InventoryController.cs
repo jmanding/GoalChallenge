@@ -1,5 +1,4 @@
 ﻿using GoalChallenge.Application.Commands.Items;
-using GoalChallenge.Application.Queries;
 using GoalChallenge.Common.Models;
 using GoalChallenge.Domain.Models;
 using MediatR;
@@ -16,20 +15,18 @@ namespace GoalChallenge.Api.Controllers
     [ApiController]
     public class InventoryController : ControllerBase
     {
-        private readonly IItemQuery _itemQuery;
+        
         private readonly IMediator _mediator;
         private readonly Serilog.ILogger _logger;
         /// <summary>
         /// Inventory Controller Constructor
         /// </summary>
         /// <param name="mediator"></param>
-        /// <param name="itemQuery"></param>
         /// <param name="logger"></param>
         /// <exception cref="ArgumentNullException"></exception>
-        public InventoryController(IMediator mediator, IItemQuery itemQuery, Serilog.ILogger logger)
+        public InventoryController(IMediator mediator, Serilog.ILogger logger)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
-            _itemQuery = itemQuery ?? throw new ArgumentNullException(nameof(itemQuery));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
@@ -39,9 +36,9 @@ namespace GoalChallenge.Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public dynamic Get()
+        public async Task<List<Inventory>> Get()
         {
-            return _itemQuery.GetAllItems();
+            return await _mediator.Send(new GetAllItemsFromInvetoryCommand());
         }
 
         // POST api/<InventoryController>

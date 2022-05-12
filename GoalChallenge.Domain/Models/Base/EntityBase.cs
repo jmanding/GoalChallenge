@@ -1,9 +1,8 @@
 ﻿using GoalChallenge.Domain.Events.Base;
-using System;
 
 namespace GoalChallenge.Domain
 {
-	public class EntityBase
+    public class EntityBase
     {
         public Guid Id { get; set; }
         public DateTime CreationDate { get; set; }

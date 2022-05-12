@@ -6,9 +6,9 @@ namespace GoalChallenge.Infrastructure.Data.Repositories.Items
     {
         Task AddItemsToInventory(Inventory inventory);
         Task AddItemsToExistInventory(Inventory inventory);
-        List<Inventory> GetAllItemsFromInventory();
-        Inventory? GetInventoryByName(string name);
-        Item GetItemByName(string name);
+        Task<List<Inventory>> GetAllItemsFromInventory();
+        Task<Inventory> GetInventoryByName(string name);
+        Task<Item> GetItemByName(string name);
         void RemoveItemFromInventory(Item item);
         Task UpdateInventories(List<Inventory> inventories);
     }

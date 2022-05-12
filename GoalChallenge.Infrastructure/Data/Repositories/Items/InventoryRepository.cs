@@ -1,17 +1,13 @@
 ﻿using GoalChallenge.Common;
 using GoalChallenge.Domain.Models;
 using GoalChallenge.Infrastructure.EF;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace GoalChallenge.Infrastructure.Data.Repositories.Items
 {
-    
 
-    public class InventoryRepository : IInventoryRepository
+
+    internal class InventoryRepository : IInventoryRepository
     {
         private readonly EFContext _efContext;
 
@@ -34,19 +30,19 @@ namespace GoalChallenge.Infrastructure.Data.Repositories.Items
             await _efContext.SaveChangesAsync();
         }
 
-        public Inventory? GetInventoryByName(string name)
+        public async Task<Inventory> GetInventoryByName(string name)
         {
-            return _efContext.Inventorys.FirstOrDefault(x => x.Name == name);
+            return await _efContext.Inventorys.FirstOrDefaultAsync(x => x.Name == name);
         }
-        public List<Inventory> GetAllItemsFromInventory()
+        public async Task<List<Inventory>> GetAllItemsFromInventory()
         {
-            var res = _efContext.Inventorys.ToList();
-            return res;
+            return await _efContext.Inventorys.ToListAsync();
+            
         }
 
-        public Item GetItemByName(string name)
+        public async Task<Item> GetItemByName(string name)
         {
-            return _efContext.Items.Where(item => item.Name == name).Single();
+            return await _efContext.Items.Where(item => item.Name == name).SingleAsync();
         }
 
         public void RemoveItemFromInventory(Item item)

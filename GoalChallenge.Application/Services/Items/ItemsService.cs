@@ -4,15 +4,10 @@ using GoalChallenge.Common.Exceptions;
 using GoalChallenge.Common.Models;
 using GoalChallenge.Domain.Models;
 using GoalChallenge.Infrastructure.Data.Repositories.Items;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GoalChallenge.Application.Services.Items
 {
-    public class ItemsService : IItemsService
+    internal class ItemsService : IItemsService
     {
         private readonly IInventoryRepository _inventoryRepository;
 
@@ -21,12 +16,17 @@ namespace GoalChallenge.Application.Services.Items
             _inventoryRepository = inventoryRepository ?? throw new ArgumentNullException(nameof(inventoryRepository));
         }
 
+        public async Task<List<Inventory>> GetAllItems()
+        {
+            return await _inventoryRepository.GetAllItemsFromInventory();
+        }
+
         public async Task AddItemsToInventory(InventoryInput inventoryInput)
         {
             List<Item> itemsInput = new List<Item>();
             inventoryInput.Items.ForEach(item => itemsInput.Add(new Item() { Name = item.Name, ExpirationDate = item.ExpirationDate, Type = item.Type }));
 
-            var inventoryExist = _inventoryRepository.GetInventoryByName(inventoryInput.Name);
+            var inventoryExist = await _inventoryRepository.GetInventoryByName(inventoryInput.Name);
 
             if (inventoryExist != null)
             {
@@ -53,7 +53,7 @@ namespace GoalChallenge.Application.Services.Items
         {
             Tools.ArgumentNull(name, nameof(name));
 
-            var inventories = _inventoryRepository.GetAllItemsFromInventory();
+            var inventories = await _inventoryRepository.GetAllItemsFromInventory();
 
             Item? itemRemoved;
             bool itemNoExist = true;

@@ -1,12 +1,7 @@
 ﻿using GoalChallenge.Domain.Events;
 using GoalChallenge.Domain.Models;
-using GoalChallenge.UnitTest.Inventories.Builder;
-using GoalChallenge.UnitTest.Items.Builder;
 using Moq;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;

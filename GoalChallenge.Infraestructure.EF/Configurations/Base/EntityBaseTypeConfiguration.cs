@@ -1,9 +1,6 @@
 ﻿using GoalChallenge.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GoalChallenge.Infrastructure.EF.Configurations
 {

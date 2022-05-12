@@ -1,11 +1,4 @@
-﻿using GoalChallenge.Domain.Events;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GoalChallenge.Domain.Models
+﻿namespace GoalChallenge.Domain.Models
 {
     public class Item : EntityBase, IEquatable<Item>
     {

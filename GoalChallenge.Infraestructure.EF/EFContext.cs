@@ -3,11 +3,6 @@ using GoalChallenge.Domain.Models;
 using GoalChallenge.Infrastructure.EF.Configurations;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GoalChallenge.Infrastructure.EF
 {
