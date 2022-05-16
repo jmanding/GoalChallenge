@@ -36,7 +36,7 @@ namespace SampleNetArch.Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public async Task<List<Inventory>> Get()
+        public async Task<dynamic> Get()
         {
             return await _mediator.Send(new GetAllItemsFromInvetoryCommand());
         }
