@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoalChallenge.Infrastructure", "GoalChallenge.Infrastructure\GoalChallenge.Infrastructure.csproj", "{C69B7E9B-1B22-4520-B7AD-99EC5BAF1AB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleNetArch.Infrastructure", "SampleNetArch.Infrastructure\SampleNetArch.Infrastructure.csproj", "{C69B7E9B-1B22-4520-B7AD-99EC5BAF1AB2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoalChallenge.Api", "GoalChallenge.Api\GoalChallenge.Api.csproj", "{D51EBA84-B0A7-44B8-9BE4-97726783A224}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleNetArch.Api", "SampleNetArch.Api\SampleNetArch.Api.csproj", "{D51EBA84-B0A7-44B8-9BE4-97726783A224}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoalChallenge.Domain", "GoalChallenge.Domain\GoalChallenge.Domain.csproj", "{6CA38FA1-1D7D-4D21-8C10-8689F500B180}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleNetArch.Domain", "SampleNetArch.Domain\SampleNetArch.Domain.csproj", "{6CA38FA1-1D7D-4D21-8C10-8689F500B180}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoalChallenge.Common", "GoalChallenge.Common\GoalChallenge.Common.csproj", "{CB2267E8-5290-41F2-91A8-1E333CA1BA4E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleNetArch.Common", "SampleNetArch.Common\SampleNetArch.Common.csproj", "{CB2267E8-5290-41F2-91A8-1E333CA1BA4E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoalChallenge.Application", "GoalChallenge.Application\GoalChallenge.Application.csproj", "{F360C778-09F4-4346-857D-1345A36DAA2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleNetArch.Application", "SampleNetArch.Application\SampleNetArch.Application.csproj", "{F360C778-09F4-4346-857D-1345A36DAA2A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 Application", "1 Application", "{46ED3F4B-2B98-4BE9-8B7F-757B1C232AC7}"
 EndProject
@@ -23,11 +23,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 Common", "4 Common", "{F7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 Api", "5 Api", "{424A784F-9A74-4CDC-9915-A2BC9DDC0433}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoalChallenge.Infraestructure.EF", "GoalChallenge.Infraestructure.EF\GoalChallenge.Infraestructure.EF.csproj", "{2846EB5E-70C0-422D-AC48-EA16781F3724}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleNetArch.Infraestructure.EF", "SampleNetArch.Infraestructure.EF\SampleNetArch.Infraestructure.EF.csproj", "{2846EB5E-70C0-422D-AC48-EA16781F3724}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6 Test", "6 Test", "{0FF3AAE2-8FD3-421A-B137-D64031834EF4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoalChallenge.UnitTest", "GoalChallenge.UnitTest\GoalChallenge.UnitTest.csproj", "{46617B95-D618-424A-B5E9-F0CDB9295039}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleNetArch.UnitTest", "SampleNetArch.UnitTest\SampleNetArch.UnitTest.csproj", "{46617B95-D618-424A-B5E9-F0CDB9295039}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 Docs", "0 Docs", "{C292305C-A13F-4881-9FE6-7FDB33C37338}"
 	ProjectSection(SolutionItems) = preProject
