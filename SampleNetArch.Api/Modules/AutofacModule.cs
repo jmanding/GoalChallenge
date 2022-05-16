@@ -1,7 +1,7 @@
 ﻿using Autofac;
-using SampleNetArch.Infrastructure.EF;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using SampleNetArch.Infraestructure.EF;
 using Serilog;
 using System.Reflection;
 
