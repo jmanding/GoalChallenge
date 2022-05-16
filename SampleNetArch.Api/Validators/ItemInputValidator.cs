@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using GoalChallenge.Common.Models;
+using SampleNetArch.Common.Models;
 
 namespace SampleNetArch.Api.Validators
 {

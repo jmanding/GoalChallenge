@@ -1,5 +1,4 @@
-﻿using GoalChallenge.Domain.Events;
-using GoalChallenge.Domain.Models;
+﻿using SampleNetArch.Domain.Models;
 using Moq;
 using SampleNetArch.Domain.Events;
 using System;

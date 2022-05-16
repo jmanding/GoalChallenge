@@ -1,7 +1,7 @@
 using Autofac;
 using MediatR;
 using Autofac.Extensions.DependencyInjection;
-using GoalChallenge.Api.Modules;
+using SampleNetArch.Api.Modules;
 using Microsoft.AspNetCore.Authentication.Negotiate;
 using Newtonsoft.Json;
 using System.Reflection;

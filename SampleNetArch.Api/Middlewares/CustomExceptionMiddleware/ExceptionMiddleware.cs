@@ -1,4 +1,4 @@
-﻿using GoalChallenge.Common.Exceptions;
+﻿using SampleNetArch.Common.Exceptions;
 using System.Net;
 
 namespace SampleNetArch.Api.Middlewares.CustomExceptionMiddleware

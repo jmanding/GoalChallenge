@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using GoalChallenge.Infrastructure.EF;
+using SampleNetArch.Infrastructure.EF;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
@@ -21,7 +21,7 @@ namespace SampleNetArch.Api.Modules
             var assemblies = new Assembly[]
             {
                 //Application
-                typeof(GoalChallenge.Application.Commands.Items.RemoveItemFromInventoryByNameCommand).Assembly,
+                typeof(SampleNetArch.Application.Commands.Items.RemoveItemFromInventoryByNameCommand).Assembly,
 
                 // Infrastructure
                 typeof(Infrastructure.Data.Repositories.Items.IInventoryRepository).Assembly,

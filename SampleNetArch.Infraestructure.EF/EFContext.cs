@@ -1,5 +1,4 @@
-﻿using GoalChallenge.Domain;
-using MediatR;
+﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using SampleNetArch.Domain.Models;
 using SampleNetArch.Infraestructure.EF.Configurations;

@@ -1,5 +1,5 @@
 ﻿using System;
-using GoalChallenge.Domain.Models;
+using SampleNetArch.Domain.Models;
 using Moq;
 using System.Threading.Tasks;
 using System.Threading;

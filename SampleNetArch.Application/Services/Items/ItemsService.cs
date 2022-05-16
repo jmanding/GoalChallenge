@@ -1,5 +1,5 @@
-﻿using GoalChallenge.Common.Exceptions;
-using GoalChallenge.Domain.Events;
+﻿using SampleNetArch.Common.Exceptions;
+using SampleNetArch.Domain.Events;
 using MediatR;
 using SampleNetArch.Application.Services.Items.Interfaces;
 using SampleNetArch.Common;

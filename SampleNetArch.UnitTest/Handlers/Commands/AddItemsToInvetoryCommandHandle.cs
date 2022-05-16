@@ -1,5 +1,4 @@
 ﻿using FluentValidation;
-using GoalChallenge.Application.Commands.Items;
 using MediatR;
 using Moq;
 using SampleNetArch.Application.Commands.Items;
