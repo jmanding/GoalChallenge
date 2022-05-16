@@ -14,8 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GoalChallenge.Domain\GoalChallenge.Domain.csproj" />
-    <ProjectReference Include="..\GoalChallenge.Infraestructure.EF\GoalChallenge.Infraestructure.EF.csproj" />
+    <ProjectReference Include="..\SampleNetArch.Domain\SampleNetArch.Domain.csproj" />
+    <ProjectReference Include="..\SampleNetArch.Infraestructure.EF\SampleNetArch.Infraestructure.EF.csproj" />
   </ItemGroup>
 
 </Project>

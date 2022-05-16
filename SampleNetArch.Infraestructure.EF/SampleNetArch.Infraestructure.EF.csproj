@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GoalChallenge.Domain\GoalChallenge.Domain.csproj" />
+    <ProjectReference Include="..\SampleNetArch.Domain\SampleNetArch.Domain.csproj" />
   </ItemGroup>
 
 </Project>

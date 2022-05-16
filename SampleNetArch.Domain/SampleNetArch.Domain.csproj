@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GoalChallenge.Common\GoalChallenge.Common.csproj" />
+    <ProjectReference Include="..\SampleNetArch.Common\SampleNetArch.Common.csproj" />
   </ItemGroup>
 
 </Project>

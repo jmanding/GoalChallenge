@@ -22,8 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GoalChallenge.Application\GoalChallenge.Application.csproj" />
-    <ProjectReference Include="..\GoalChallenge.Domain\GoalChallenge.Domain.csproj" />
+    <ProjectReference Include="..\SampleNetArch.Application\SampleNetArch.Application.csproj" />
+    <ProjectReference Include="..\SampleNetArch.Domain\SampleNetArch.Domain.csproj" />
   </ItemGroup>
 
 </Project>
