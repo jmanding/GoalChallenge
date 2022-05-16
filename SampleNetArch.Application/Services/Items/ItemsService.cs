@@ -1,13 +1,13 @@
-﻿using GoalChallenge.Application.Services.Items.Interfaces;
-using GoalChallenge.Common;
-using GoalChallenge.Common.Exceptions;
-using GoalChallenge.Common.Models;
+﻿using GoalChallenge.Common.Exceptions;
 using GoalChallenge.Domain.Events;
-using GoalChallenge.Domain.Models;
-using GoalChallenge.Infrastructure.Data.Repositories.Items;
 using MediatR;
+using SampleNetArch.Application.Services.Items.Interfaces;
+using SampleNetArch.Common;
+using SampleNetArch.Common.Models;
+using SampleNetArch.Domain.Models;
+using SampleNetArch.Infrastructure.Data.Repositories.Items;
 
-namespace GoalChallenge.Application.Services.Items
+namespace SampleNetArch.Application.Services.Items
 {
     internal class ItemsService : IItemsService
     {
@@ -78,7 +78,7 @@ namespace GoalChallenge.Application.Services.Items
                 }
             }
 
-            if(itemNoExist)
+            if (itemNoExist)
             {
                 throw new NoDataException($@"Item no exist with Name ""{name}""");
             }

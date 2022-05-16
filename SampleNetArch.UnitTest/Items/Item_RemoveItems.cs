@@ -1,10 +1,10 @@
-﻿using GoalChallenge.UnitTest.Inventories.Builder;
-using GoalChallenge.UnitTest.Items.Builder;
+﻿using SampleNetArch.UnitTest.Inventories.Builder;
+using SampleNetArch.UnitTest.Items.Builder;
 using System;
 using System.Linq;
 using Xunit;
 
-namespace GoalChallenge.UnitTest.Items
+namespace SampleNetArch.UnitTest.Items
 {
     public class Item_RemoveItems
     {

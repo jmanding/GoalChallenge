@@ -1,4 +1,4 @@
-﻿namespace GoalChallenge.Common.Models
+﻿namespace SampleNetArch.Common.Models
 {
     public class InventoryInput
     {

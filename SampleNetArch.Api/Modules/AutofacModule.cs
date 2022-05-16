@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Serilog;
 using System.Reflection;
 
-namespace GoalChallenge.Api.Modules
+namespace SampleNetArch.Api.Modules
 {
     /// <summary>
     /// Autofac module
@@ -18,7 +18,7 @@ namespace GoalChallenge.Api.Modules
         /// <param name="builder"></param>
         protected override void Load(ContainerBuilder builder)
         {
-            var assemblies = new System.Reflection.Assembly[]
+            var assemblies = new Assembly[]
             {
                 //Application
                 typeof(GoalChallenge.Application.Commands.Items.RemoveItemFromInventoryByNameCommand).Assembly,
@@ -29,7 +29,7 @@ namespace GoalChallenge.Api.Modules
                 // Domain
                 typeof(Domain.Events.Base.BaseDomainEvent).Assembly,
 
-               System.Reflection.Assembly.GetExecutingAssembly()
+               Assembly.GetExecutingAssembly()
             };
 
             builder.RegisterAssemblyTypes(typeof(IMediator).GetTypeInfo().Assembly).AsImplementedInterfaces();

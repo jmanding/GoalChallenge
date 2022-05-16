@@ -1,9 +1,9 @@
 ﻿using FluentValidation;
-using GoalChallenge.Application.Services.Items.Interfaces;
-using GoalChallenge.Common;
 using MediatR;
+using SampleNetArch.Application.Services.Items.Interfaces;
+using SampleNetArch.Common;
 
-namespace GoalChallenge.Application.Commands.Items
+namespace SampleNetArch.Application.Commands.Items
 {
     public class RemoveItemFromInventoryByNameCommandHandler : AsyncRequestHandler<RemoveItemFromInventoryByNameCommand>
     {

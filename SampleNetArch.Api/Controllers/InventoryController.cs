@@ -1,12 +1,13 @@
-﻿using GoalChallenge.Application.Commands.Items;
-using GoalChallenge.Common.Models;
-using GoalChallenge.Domain.Models;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using SampleNetArch.Application.Commands.Items;
+using SampleNetArch.Application.Queries.Items;
+using SampleNetArch.Common.Models;
+using SampleNetArch.Domain.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace GoalChallenge.Api.Controllers
+namespace SampleNetArch.Api.Controllers
 {
     /// <summary>
     /// Inventory operations
@@ -74,7 +75,7 @@ namespace GoalChallenge.Api.Controllers
             await _mediator.Send(command);
         }
 
-       
+
 
         // DELETE api/<InventoryController>/5
         /// <summary>

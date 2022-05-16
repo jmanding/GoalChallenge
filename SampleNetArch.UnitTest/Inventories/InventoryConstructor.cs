@@ -1,8 +1,8 @@
-﻿using GoalChallenge.UnitTest.Inventories.Builder;
+﻿using SampleNetArch.UnitTest.Inventories.Builder;
 using System;
 using Xunit;
 
-namespace GoalChallenge.UnitTest.Inventories
+namespace SampleNetArch.UnitTest.Inventories
 {
     public class InventoryConstructor
     {

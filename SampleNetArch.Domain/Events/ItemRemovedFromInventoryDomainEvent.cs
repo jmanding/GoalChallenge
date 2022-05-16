@@ -1,7 +1,7 @@
-﻿using GoalChallenge.Domain.Events.Base;
-using GoalChallenge.Domain.Models;
+﻿using SampleNetArch.Domain.Events.Base;
+using SampleNetArch.Domain.Models;
 
-namespace GoalChallenge.Domain.Events
+namespace SampleNetArch.Domain.Events
 {
     public class ItemRemovedFromInventoryDomainEvent : BaseDomainEvent
     {

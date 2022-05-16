@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 using System.Reflection;
 using FluentValidation;
 using Microsoft.OpenApi.Models;
-using GoalChallenge.Api.CustomExceptionMiddleware;
+using SampleNetArch.Api.Middlewares.CustomExceptionMiddleware;
 
 var builder = WebApplication.CreateBuilder(args);
 

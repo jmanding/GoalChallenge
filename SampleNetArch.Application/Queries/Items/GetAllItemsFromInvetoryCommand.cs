@@ -1,7 +1,7 @@
-﻿using GoalChallenge.Domain.Models;
-using MediatR;
+﻿using MediatR;
+using SampleNetArch.Domain.Models;
 
-namespace GoalChallenge.Application.Commands.Items
+namespace SampleNetArch.Application.Queries.Items
 {
     public class GetAllItemsFromInvetoryCommand : IRequest<List<Inventory>>
     {

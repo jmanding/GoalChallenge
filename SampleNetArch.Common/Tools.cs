@@ -1,12 +1,12 @@
 ﻿using FluentValidation.Results;
 
-namespace GoalChallenge.Common
+namespace SampleNetArch.Common
 {
     public static class Tools
     {
         public static void ArgumentNull<T>(T argument, string operation) => _ = argument ?? throw new ArgumentNullException(operation);
 
-        
+
         /// <summary>
         /// Elements in first that are not in second
         /// </summary>

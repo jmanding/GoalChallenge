@@ -1,6 +1,6 @@
-﻿using GoalChallenge.Domain.Models;
+﻿using SampleNetArch.Domain.Models;
 
-namespace GoalChallenge.Infrastructure.Data.Repositories.Items
+namespace SampleNetArch.Infrastructure.Data.Repositories.Items
 {
     public interface IInventoryRepository
     {

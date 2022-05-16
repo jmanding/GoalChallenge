@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace GoalChallenge.Domain.Events.Base
+namespace SampleNetArch.Domain.Events.Base
 {
     public abstract class BaseDomainEvent : INotification
     {

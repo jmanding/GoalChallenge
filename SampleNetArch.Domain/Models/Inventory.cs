@@ -1,7 +1,8 @@
-﻿using GoalChallenge.Common;
-using GoalChallenge.Domain.Events;
+﻿using SampleNetArch.Domain.Events;
+using SampleNetArch.Common;
+using SampleNetArch.Domain.Models.Base;
 
-namespace GoalChallenge.Domain.Models
+namespace SampleNetArch.Domain.Models
 {
     public class Inventory : EntityBase
     {
@@ -10,7 +11,7 @@ namespace GoalChallenge.Domain.Models
         public virtual List<Item> Items { get; set; } = new List<Item>();
 
 
-        public void AddItem(Item addItem) 
+        public void AddItem(Item addItem)
         {
             Tools.ArgumentNull(addItem, nameof(addItem));
 
@@ -26,7 +27,7 @@ namespace GoalChallenge.Domain.Models
             Events.Add(new ItemRemovedFromInventoryDomainEvent(removeItem, Name));
         }
 
-        
+
 
     }
 }

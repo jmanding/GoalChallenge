@@ -1,15 +1,16 @@
 ﻿using FluentValidation;
 using GoalChallenge.Application.Commands.Items;
-using GoalChallenge.Application.Services.Items.Interfaces;
-using GoalChallenge.Common.Models;
 using MediatR;
 using Moq;
+using SampleNetArch.Application.Commands.Items;
+using SampleNetArch.Application.Services.Items.Interfaces;
+using SampleNetArch.Common.Models;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace GoalChallenge.UnitTest.Handlers
+namespace SampleNetArch.UnitTest.Handlers.Commands
 {
     public class AddItemsToInvetoryCommandHandle
     {
@@ -33,7 +34,7 @@ namespace GoalChallenge.UnitTest.Handlers
         [Fact]
         public async Task AddItemsToInventoryHandle()
         {
-            await _handler.Handle(new AddItemsToInvetoryCommand(new Common.Models.InventoryInput()), CancellationToken.None);
+            await _handler.Handle(new AddItemsToInvetoryCommand(new InventoryInput()), CancellationToken.None);
 
             _itemsServiceMock.Verify(service => service.AddItemsToInventory(It.IsAny<InventoryInput>()));
         }

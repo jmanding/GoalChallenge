@@ -1,7 +1,7 @@
-﻿using GoalChallenge.Common.Models;
-using GoalChallenge.Domain.Models;
+﻿using SampleNetArch.Common.Models;
+using SampleNetArch.Domain.Models;
 
-namespace GoalChallenge.Application.Services.Items.Interfaces
+namespace SampleNetArch.Application.Services.Items.Interfaces
 {
     public interface IItemsService
     {

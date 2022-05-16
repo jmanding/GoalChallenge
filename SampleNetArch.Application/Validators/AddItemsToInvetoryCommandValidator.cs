@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
-using GoalChallenge.Application.Commands.Items;
+using SampleNetArch.Application.Commands.Items;
 
-namespace GoalChallenge.Application.Validators
+namespace SampleNetArch.Application.Validators
 {
     public class AddItemsToInvetoryCommandValidator : AbstractValidator<AddItemsToInvetoryCommand>
     {

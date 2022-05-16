@@ -1,10 +1,10 @@
 ﻿using GoalChallenge.Domain;
-using GoalChallenge.Domain.Models;
-using GoalChallenge.Infrastructure.EF.Configurations;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using SampleNetArch.Domain.Models;
+using SampleNetArch.Infraestructure.EF.Configurations;
 
-namespace GoalChallenge.Infrastructure.EF
+namespace SampleNetArch.Infraestructure.EF
 {
     public class EFContext : DbContext
     {

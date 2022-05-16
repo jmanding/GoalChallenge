@@ -1,11 +1,12 @@
 ﻿using System;
-using GoalChallenge.Domain.Events;
 using GoalChallenge.Domain.Models;
 using Moq;
 using System.Threading.Tasks;
 using System.Threading;
 using Xunit;
-namespace GoalChallenge.UnitTest.Handlers
+using SampleNetArch.Domain.Events;
+
+namespace SampleNetArch.UnitTest.Handlers.Events
 {
     public class ItemRemovedFromInventoryDomainEventHandle
     {

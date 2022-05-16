@@ -1,4 +1,4 @@
-﻿namespace GoalChallenge.Api.CustomExceptionMiddleware
+﻿namespace SampleNetArch.Api.Middlewares.CustomExceptionMiddleware
 {
     public static class ExceptionMiddlewareExtensions
     {

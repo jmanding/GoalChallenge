@@ -1,9 +1,9 @@
 ﻿using FluentValidation;
-using GoalChallenge.Application.Services.Items.Interfaces;
-using GoalChallenge.Common;
 using MediatR;
+using SampleNetArch.Application.Services.Items.Interfaces;
+using SampleNetArch.Common;
 
-namespace GoalChallenge.Application.Commands.Items
+namespace SampleNetArch.Application.Commands.Items
 {
     public class AddItemsToInvetoryCommandHandler : AsyncRequestHandler<AddItemsToInvetoryCommand>
     {
@@ -20,7 +20,7 @@ namespace GoalChallenge.Application.Commands.Items
         {
             Tools.ArgumentNull(command, nameof(command));
             _validator.Validate(command).Result();
-            
+
             await _itemsService.AddItemsToInventory(command.InventoryInput);
         }
     }

@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using GoalChallenge.Common.Models;
 
-namespace GoalChallenge.Api.Validators
+namespace SampleNetArch.Api.Validators
 {
     /// <summary>
     /// InventoryInput Validator 

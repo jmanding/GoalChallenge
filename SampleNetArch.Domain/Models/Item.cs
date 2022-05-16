@@ -1,4 +1,6 @@
-﻿namespace GoalChallenge.Domain.Models
+﻿using SampleNetArch.Domain.Models.Base;
+
+namespace SampleNetArch.Domain.Models
 {
     public class Item : EntityBase, IEquatable<Item>
     {
@@ -10,7 +12,7 @@
 
         public override bool Equals(object obj)
         {
-            if(obj == null) return false;
+            if (obj == null) return false;
             return Equals(obj as Item);
         }
 

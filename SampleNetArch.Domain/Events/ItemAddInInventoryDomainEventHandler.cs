@@ -1,7 +1,7 @@
-﻿using GoalChallenge.Common;
-using MediatR;
+﻿using MediatR;
+using SampleNetArch.Common;
 
-namespace GoalChallenge.Domain.Events
+namespace SampleNetArch.Domain.Events
 {
     public class ItemAddInInventoryDomainEventHandler : INotificationHandler<ItemAddInInventoryDomainEvent>
     {

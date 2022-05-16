@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GoalChallenge.Application\GoalChallenge.Application.csproj" />
+    <ProjectReference Include="..\SampleNetArch.Application\SampleNetArch.Application.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,18 +1,19 @@
 ﻿using GoalChallenge.Domain.Events;
 using GoalChallenge.Domain.Models;
 using Moq;
+using SampleNetArch.Domain.Events;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace GoalChallenge.UnitTest.Handlers
+namespace SampleNetArch.UnitTest.Handlers.Events
 {
     public class ItemAddInInventoryDomainEventHandle
     {
         private ItemAddInInventoryDomainEventHandler _handler;
         private Mock<Serilog.ILogger> _loggerMock;
-        
+
 
         public ItemAddInInventoryDomainEventHandle()
         {

@@ -1,8 +1,8 @@
-﻿using GoalChallenge.UnitTest.Items.Builder;
+﻿using SampleNetArch.UnitTest.Items.Builder;
 using System;
 using Xunit;
 
-namespace GoalChallenge.UnitTest.Items
+namespace SampleNetArch.UnitTest.Items
 {
     public class ItemConstructor
     {

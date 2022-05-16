@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace GoalChallenge.Application.Commands.Items
+namespace SampleNetArch.Application.Commands.Items
 {
     public class RemoveItemFromInventoryByNameCommand : IRequest
     {

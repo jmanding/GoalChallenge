@@ -1,14 +1,15 @@
 ﻿using FluentValidation;
 using GoalChallenge.Application.Commands.Items;
-using GoalChallenge.Application.Services.Items.Interfaces;
 using MediatR;
 using Moq;
+using SampleNetArch.Application.Commands.Items;
+using SampleNetArch.Application.Services.Items.Interfaces;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace GoalChallenge.UnitTest.Handlers
+namespace SampleNetArch.UnitTest.Handlers.Commands
 {
     public class RemoveItemFromInventoryByNameCommandHandle
     {

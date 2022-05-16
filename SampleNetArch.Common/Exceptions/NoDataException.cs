@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace GoalChallenge.Common.Exceptions
+namespace SampleNetArch.Common.Exceptions
 {
     [Serializable]
     public class NoDataException : Exception

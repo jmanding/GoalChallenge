@@ -1,7 +1,7 @@
-﻿using GoalChallenge.Common.Models;
-using MediatR;
+﻿using MediatR;
+using SampleNetArch.Common.Models;
 
-namespace GoalChallenge.Application.Commands.Items
+namespace SampleNetArch.Application.Commands.Items
 {
     public class AddItemsToInvetoryCommand : IRequest
     {

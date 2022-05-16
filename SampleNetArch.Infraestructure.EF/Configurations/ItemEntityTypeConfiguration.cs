@@ -1,7 +1,8 @@
-﻿using GoalChallenge.Domain.Models;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using SampleNetArch.Domain.Models;
+using SampleNetArch.Infraestructure.EF.Configurations.Base;
 
-namespace GoalChallenge.Infrastructure.EF.Configurations
+namespace SampleNetArch.Infraestructure.EF.Configurations
 {
     public class ItemEntityTypeConfiguration : EntityBaseTypeConfiguration<Item>
     {

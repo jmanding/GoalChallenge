@@ -1,9 +1,9 @@
-using GoalChallenge.UnitTest.Inventories.Builder;
-using GoalChallenge.UnitTest.Items.Builder;
+using SampleNetArch.UnitTest.Inventories.Builder;
+using SampleNetArch.UnitTest.Items.Builder;
 using System;
 using Xunit;
 
-namespace GoalChallenge.UnitTest
+namespace SampleNetArch.UnitTest.Items
 {
     public class Item_AddItems
     {

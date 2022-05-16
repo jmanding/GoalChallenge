@@ -1,7 +1,7 @@
 ﻿using GoalChallenge.Common.Exceptions;
 using System.Net;
 
-namespace GoalChallenge.Api.CustomExceptionMiddleware
+namespace SampleNetArch.Api.Middlewares.CustomExceptionMiddleware
 {
     public class ExceptionMiddleware
     {
@@ -22,7 +22,7 @@ namespace GoalChallenge.Api.CustomExceptionMiddleware
             {
                 await HandleExceptionAsync(httpContext, HttpStatusCode.BadRequest, ex.Message);
             }
-            catch (ArgumentNullException ex) 
+            catch (ArgumentNullException ex)
             {
                 await HandleExceptionAsync(httpContext, HttpStatusCode.BadRequest, ex.Message);
             }
@@ -39,19 +39,19 @@ namespace GoalChallenge.Api.CustomExceptionMiddleware
             return context.Response.WriteAsync(messageException);
 
 
-   //         var responseMessageList = ResponseMessageList.createNewResponseMessageList();
+            //         var responseMessageList = ResponseMessageList.createNewResponseMessageList();
 
-   //         if (exception is RethinkSoftwareException)
-			//{
-   //             context.Response.StatusCode = (int)HttpStatusCode.OK;
-   //             responseMessageList = responseMessageList.addWarning(exception.Message);
-   //         }
-   //         else
-			//{
-   //             context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-   //             responseMessageList = responseMessageList.addError(exception);
-   //         }
-            
+            //         if (exception is RethinkSoftwareException)
+            //{
+            //             context.Response.StatusCode = (int)HttpStatusCode.OK;
+            //             responseMessageList = responseMessageList.addWarning(exception.Message);
+            //         }
+            //         else
+            //{
+            //             context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+            //             responseMessageList = responseMessageList.addError(exception);
+            //         }
+
             //var exceptionMessageJson = JsonConvert.SerializeObject(new Response<dynamic>("", responseMessageList), new JsonSerializerSettings() { ContractResolver = new CamelCasePropertyNamesContractResolver() });
 
             //return context.Response.WriteAsync(exceptionMessageJson);

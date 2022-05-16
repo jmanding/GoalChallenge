@@ -1,6 +1,6 @@
-﻿using GoalChallenge.Domain.Models;
+﻿using SampleNetArch.Domain.Models;
 
-namespace GoalChallenge.UnitTest.Inventories.Builder
+namespace SampleNetArch.UnitTest.Inventories.Builder
 {
     public class InventoryBuilder
     {
@@ -8,8 +8,8 @@ namespace GoalChallenge.UnitTest.Inventories.Builder
 
         public InventoryBuilder(string name)
         {
-            Inventory = new Inventory() 
-            { 
+            Inventory = new Inventory()
+            {
                 Name = name,
                 Description = "Description Inventory 1"
             };

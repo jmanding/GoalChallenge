@@ -1,8 +1,8 @@
-﻿using GoalChallenge.Domain.Models;
+﻿using SampleNetArch.Domain.Models;
 using System;
 using System.Collections.Generic;
 
-namespace GoalChallenge.UnitTest.Items.Builder
+namespace SampleNetArch.UnitTest.Items.Builder
 {
     public class ItemBuilder
     {
@@ -11,11 +11,11 @@ namespace GoalChallenge.UnitTest.Items.Builder
 
         public ItemBuilder(string name, DateTime expirationDate, int type)
         {
-            Item = new Item() 
-            { 
-                Name = name, 
-                ExpirationDate = expirationDate, 
-                Type = type 
+            Item = new Item()
+            {
+                Name = name,
+                ExpirationDate = expirationDate,
+                Type = type
             };
         }
 

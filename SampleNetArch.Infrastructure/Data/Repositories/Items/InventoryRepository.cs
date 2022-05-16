@@ -1,9 +1,9 @@
-﻿using GoalChallenge.Common;
-using GoalChallenge.Domain.Models;
-using GoalChallenge.Infrastructure.EF;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using SampleNetArch.Common;
+using SampleNetArch.Domain.Models;
+using SampleNetArch.Infraestructure.EF;
 
-namespace GoalChallenge.Infrastructure.Data.Repositories.Items
+namespace SampleNetArch.Infrastructure.Data.Repositories.Items
 {
 
 
@@ -37,7 +37,7 @@ namespace GoalChallenge.Infrastructure.Data.Repositories.Items
         public async Task<List<Inventory>> GetAllItemsFromInventory()
         {
             return await _efContext.Inventorys.ToListAsync();
-            
+
         }
 
         public async Task<Item> GetItemByName(string name)

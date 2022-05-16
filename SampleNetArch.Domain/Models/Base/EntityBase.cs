@@ -1,6 +1,6 @@
-﻿using GoalChallenge.Domain.Events.Base;
+﻿using SampleNetArch.Domain.Events.Base;
 
-namespace GoalChallenge.Domain
+namespace SampleNetArch.Domain.Models.Base
 {
     public class EntityBase
     {
@@ -27,6 +27,6 @@ namespace GoalChallenge.Domain
             ModificationDate = DateTime.UtcNow.Date;
         }
 
-        
+
     }
 }
