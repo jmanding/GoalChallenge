@@ -5,7 +5,7 @@ namespace SampleNetArch.Application.Services.Items.Interfaces
 {
     public interface IItemsService
     {
-        Task<List<Inventory>> GetAllItems();
+        Task<dynamic> GetAllItems();
         Task AddItemsToInventory(InventoryInput inventoryInput);
         Task RemoveItemFromInventoryByName(string name);
     }

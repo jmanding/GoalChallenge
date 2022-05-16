@@ -20,7 +20,7 @@ namespace SampleNetArch.Application.Services.Items
             _inventoryRepository = inventoryRepository ?? throw new ArgumentNullException(nameof(inventoryRepository));
         }
 
-        public async Task<List<Inventory>> GetAllItems()
+        public async Task<dynamic> GetAllItems()
         {
             return await _inventoryRepository.GetAllItemsFromInventory();
         }
@@ -52,10 +52,10 @@ namespace SampleNetArch.Application.Services.Items
                 await _inventoryRepository.AddItemsToInventory(inventory);
             }
 
-            foreach (var domainEvent in inventory.Events)
-            {
-                await _mediator.Publish(domainEvent).ConfigureAwait(false);
-            }
+            //foreach (var domainEvent in inventory.Events)
+            //{
+            //    await _mediator.Publish(domainEvent);
+            //}
         }
 
         public async Task RemoveItemFromInventoryByName(string name)
@@ -85,14 +85,14 @@ namespace SampleNetArch.Application.Services.Items
 
             await _inventoryRepository.UpdateInventories(inventories);
 
-            foreach (var inventory in inventories)
-            {
-                foreach (var domainEvent in inventory.Events)
-                {
-                    await _mediator.Publish(domainEvent).ConfigureAwait(false);
+            //foreach (var inventory in inventories)
+            //{
+            //    foreach (var domainEvent in inventory.Events)
+            //    {
+            //        await _mediator.Publish(domainEvent);
 
-                }
-            }
+            //    }
+            //}
         }
     }
 }
