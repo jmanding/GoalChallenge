@@ -4,7 +4,7 @@ using System.Data;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GoalChallenge.Data.Dapper
+namespace SampleNetArch.Data.Dapper
 {
     public interface IQuery
     {

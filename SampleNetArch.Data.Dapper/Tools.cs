@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace GoalChallenge.Data.Dapper
+namespace SampleNetArch.Data.Dapper
 {
     public static class Tools
     {

@@ -1,4 +1,4 @@
-﻿namespace GoalChallenge.Api.Query.Queries.Items
+﻿namespace SampleNetArch.Api.Query.Queries.Items
 {
     public interface IItemQuery 
     {

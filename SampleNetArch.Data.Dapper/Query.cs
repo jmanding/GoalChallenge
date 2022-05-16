@@ -1,7 +1,7 @@
 ﻿using Dapper;
 using System.Data;
 
-namespace GoalChallenge.Data.Dapper
+namespace SampleNetArch.Data.Dapper
 {
     public class Query : IDisposable, IQuery
     {

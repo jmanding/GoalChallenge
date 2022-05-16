@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GoalChallenge.Api.Query.Queries.Items
+namespace SampleNetArch.Api.Query.Queries.Items
 {
     public class ItemQuery : Data.Dapper.Query, IItemQuery
     {
