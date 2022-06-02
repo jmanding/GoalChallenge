@@ -1,1 +1,1 @@
-# GoalChallenge
+# SampleNetArch
